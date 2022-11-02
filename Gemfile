@@ -61,6 +61,8 @@ gem 'active_model_serializers'
 gem 'jwt', '~> 2.5'
 
 gem 'devise', '~> 4.8', '>= 4.8.1'
+# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
+ gem "rack-cors"
 
 # authentication
 gem 'jwt', '~> 2.5'
