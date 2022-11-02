@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     post 'password/reset', to: 'passwords#reset'
     resources :registration, only: [:create]
     resources :sessions, only: [:create]
+    resources :profiles, only: [:show]
   end
 end
