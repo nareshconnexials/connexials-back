@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   namespace :users do
+    post 'password/forgot', to: 'passwords#forgot'
+    post 'password/reset', to: 'passwords#reset'
     resources :registration, only: [:create]
     resources :sessions, only: [:create]
   end
