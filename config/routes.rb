@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resources :registration, only: [:create]
     resources :sessions, only: [:create]
     resources :profiles, only: [:show]
+    resources :list, only: [:index]
   end
 end
