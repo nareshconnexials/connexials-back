@@ -1,0 +1,2 @@
+class LeaveAllocation < ApplicationRecord
+end
