@@ -10,10 +10,12 @@ Rails.application.routes.draw do
     resources :sessions, only: [:create]
     resources :profiles, only: [:show]
     resources :list, only: [:index]
-    resources :leaves, only: [:create]
+    resources :leaves
   end
 
   namespace :admin do
     resources :admin, only: [:index, :create, :update, :destroy]
   end
+
+  resources :payslips
 end
