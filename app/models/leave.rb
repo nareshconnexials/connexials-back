@@ -3,6 +3,6 @@ class Leave < ApplicationRecord
   #validates :leave_type, inclusion: { in: %w(festival sick paid),
   #  message: "%{value} is not a valid leaves" }
   
-  has_many :user
+  # has_many :user
 
 end

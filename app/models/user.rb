@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :leave
+  # has_many :leave
   enum role: [:employee, :admin]
 
   after_initialize do

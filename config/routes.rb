@@ -3,6 +3,16 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  namespace :admin do
+    # Add dashboard for your models here
+    resources :users
+    resources :allowances
+    resources :employments
+  
+    root to: "users#index" # <--- Root route
+  end
+
   namespace :users do
     post 'password/forgot', to: 'passwords#forgot'
     post 'password/reset', to: 'passwords#reset'
