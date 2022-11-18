@@ -1,4 +1,4 @@
-class User::LeaveAllocationController < ApplicationController
+class Users::LeaveAllocationController < ApplicationController
 
   def index
     @leaveallocation = LeaveAllocation.all
