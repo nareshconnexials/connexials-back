@@ -61,10 +61,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_14_081123) do
   end
 
   create_table "leave_allocations", force: :cascade do |t|
-    t.integer "leave_id"
     t.datetime "month"
     t.float "credit"
-    t.float "leave"
+    t.float "count"
     t.float "loss"
     t.float "penalty"
     t.float "compoff"
