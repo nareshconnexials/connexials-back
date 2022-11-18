@@ -13,9 +13,9 @@ Rails.application.routes.draw do
     resources :leaves
   end
 
-  namespace :admin do
-    resources :admin, only: [:index, :create, :update, :destroy]
-  end
+  # namespace :admin do
+  #   resources :admin, only: [:index, :create, :update, :destroy]
+  # end
 
   resources :payslips
 end
