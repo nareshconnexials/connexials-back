@@ -1,8 +1,11 @@
 class User < ApplicationRecord
   has_secure_password
-  # has_many :leave
   enum role: [:employee, :admin]
 
+  ## Assocation
+  has_many :leaves
+
+  ## Callback
   after_initialize do
     if self.new_record?
       self.role ||= :employee

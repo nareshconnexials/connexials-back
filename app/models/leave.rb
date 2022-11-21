@@ -4,5 +4,6 @@ class Leave < ApplicationRecord
   #  message: "%{value} is not a valid leaves" }
   
   # has_many :user
+  belongs_to :user
 
 end
