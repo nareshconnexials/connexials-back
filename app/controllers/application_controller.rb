@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, with: :render_unauthorize
   rescue_from ActiveRecord::RecordNotUnique, with: :render_record_not_unique
 
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   private
 

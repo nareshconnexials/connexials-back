@@ -57,6 +57,9 @@ gem 'active_model_serializers'
 # authentication
 gem 'jwt', '~> 2.5'
 
+# admin authentication
+gem 'devise'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
