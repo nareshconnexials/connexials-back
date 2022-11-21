@@ -11,7 +11,7 @@ class EmploymentDashboard < Administrate::BaseDashboard
     id: Field::Number,
     designation: Field::String,
     department: Field::String,
-    date_of_joining: Field::Number,
+    date_of_joining: Field::DateTime,
     project_location: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
