@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :admins, class_name: 'AdminUser', path: 'admin'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
+  
   # Defines the root path route ("/")
   # root "articles#index"
 
@@ -9,8 +10,9 @@ Rails.application.routes.draw do
     resources :users
     resources :allowances
     resources :employments
-  
+    resources :deductions
     root to: "users#index" # <--- Root route
+  
   end
 
   namespace :users do
