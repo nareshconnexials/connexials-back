@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :deductions
     resources :payslips
     resources :timeoffs
+    resources :bank_details
     root to: "users#index"
   
   end
