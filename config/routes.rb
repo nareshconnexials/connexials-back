@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :allowances
     resources :employments
     resources :deductions
-    # resources :payslips
+    resources :payslips
     resources :timeoffs
     root to: "users#index"
   
