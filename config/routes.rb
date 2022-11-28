@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :users
     resources :allowances
     # resources :employments
-    # resources :deductions
+    resources :deductions
     # resources :payslips
     # resources :leaves
     root to: "users#index"
