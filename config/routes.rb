@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   namespace :admin do
     # Add dashboard for your models here
     resources :users
-    # resources :allowances
+    resources :allowances
     # resources :employments
     # resources :deductions
     # resources :payslips
