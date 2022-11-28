@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     # Add dashboard for your models here
     resources :users
     resources :allowances
-    # resources :employments
+    resources :employments
     resources :deductions
     # resources :payslips
     # resources :leaves
