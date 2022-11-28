@@ -3,7 +3,7 @@ class User < ApplicationRecord
   enum role: [:employee, :admin]
 
   ## Assocation
-  has_many :leaves
+  has_many :timeoffs
 
   ## Callback
   after_initialize do

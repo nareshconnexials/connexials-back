@@ -76,7 +76,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_065152) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "leaves", force: :cascade do |t|
+  create_table "payslips", force: :cascade do |t|
+    t.integer "employment_id"
+    t.date "from_date"
+    t.date "to_date"
+    t.datetime "month"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "timeoffs", force: :cascade do |t|
     t.integer "user_id"
     t.date "from_date"
     t.date "to_date"
@@ -85,15 +94,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_065152) do
     t.string "days"
     t.string "mail_to"
     t.string "reason"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "payslips", force: :cascade do |t|
-    t.integer "employment_id"
-    t.date "from_date"
-    t.date "to_date"
-    t.datetime "month"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

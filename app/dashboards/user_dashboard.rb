@@ -20,7 +20,7 @@ class UserDashboard < Administrate::BaseDashboard
     last_name: Field::String,
     last_sign_in_at: Field::DateTime,
     last_sign_in_ip: Field::String,
-    leaves: Field::HasMany,
+    timeoffs: Field::HasMany,
     locked_at: Field::DateTime,
     password_digest: Field::String,
     remember_created_at: Field::DateTime,
@@ -61,7 +61,6 @@ class UserDashboard < Administrate::BaseDashboard
     last_name
     last_sign_in_at
     last_sign_in_ip
-    leaves
     locked_at
     password_digest
     remember_created_at
@@ -90,7 +89,6 @@ class UserDashboard < Administrate::BaseDashboard
     last_name
     last_sign_in_at
     last_sign_in_ip
-    leaves
     locked_at
     password_digest
     remember_created_at
