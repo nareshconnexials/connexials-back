@@ -1,6 +1,6 @@
 class CreateLeaves < ActiveRecord::Migration[7.0]
   def change
-    create_table :timoffs do |t|
+    create_table :timeoffs do |t|
       t.integer :user_id
       t.date :from_date
       t.date :to_date

@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  
   # devise_for :admins, class_name: 'AdminUser', path: 'admin'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   
   # Defines the root path route ("/")
   # root "articles#index"
-
+  devise_for :admin_users
+  
   namespace :admin do
     # Add dashboard for your models here
     resources :users
@@ -15,7 +17,7 @@ Rails.application.routes.draw do
     resources :timeoffs
     resources :bank_details
     root to: "users#index"
-  
+    
   end
 
   namespace :users do
