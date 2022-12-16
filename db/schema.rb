@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_21_065152) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_30_094949) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,17 +61,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_065152) do
     t.string "department"
     t.datetime "date_of_joining"
     t.string "project_location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "leave_allocations", force: :cascade do |t|
-    t.datetime "month"
-    t.float "credit"
-    t.float "count"
-    t.float "loss"
-    t.float "penalty"
-    t.float "compoff"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
