@@ -1,6 +1,6 @@
-class CreateLeaveAllocations < ActiveRecord::Migration[7.0]
+class CreateAllocations < ActiveRecord::Migration[7.0]
   def change
-    create_table :leave_allocations do |t|
+    create_table :allocations do |t|
       t.integer :leave_id
       t.datetime :month
       t.float :credit

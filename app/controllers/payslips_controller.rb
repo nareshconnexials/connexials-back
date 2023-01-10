@@ -9,6 +9,11 @@ class PayslipsController < ApplicationController
   
   end
 
+  def index
+    @payslip = Payslip.all
+    render json: @payslip
+  end
+
   def new
     @payslips = Payslip.new
     @user = User.find(params[:user_id])
