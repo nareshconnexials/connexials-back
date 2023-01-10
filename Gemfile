@@ -60,8 +60,7 @@ gem 'active_model_serializers'
 # authentication
 gem 'jwt', '~> 2.5'
 
-# admin authentication
-gem 'devise'
+gem 'devise', '~> 4.8', '>= 4.8.1'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
