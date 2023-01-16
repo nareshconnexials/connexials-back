@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_30_094949) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_16_061328) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -74,6 +74,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_094949) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "timeoff_allocations", force: :cascade do |t|
+    t.integer "timeoff_id"
+    t.datetime "month"
+    t.float "credit"
+    t.float "leave"
+    t.float "penalty"
+    t.float "compoff"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "timeoffs", force: :cascade do |t|
     t.integer "user_id"
     t.date "from_date"
@@ -86,10 +97,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_094949) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-ActiveRecord::Schema[7.0].define(version: 2022_10_31_083804) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
 
   create_table "users", force: :cascade do |t|
     t.string "first_name", default: "", null: false

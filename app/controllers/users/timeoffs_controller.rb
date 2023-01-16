@@ -1,7 +1,9 @@
-class Users::timeoffsController < ApplicationController
+class Users::TimeoffsController < ApplicationController
 
+  skip_before_action :authenticate_user!
+  
   def index
-    @timeoff = Timeoff.all
+    @timeoff = Timeoff.where(user_id: params[:user_id])
     
     render json: @timeoff
   end
@@ -11,8 +13,9 @@ class Users::timeoffsController < ApplicationController
     if @timeoff.persisted?
       render json: { message: "Timeoff created successfully", data: @timeoff}, status: :created and return
     end
+
     render json: { message: "Timeoff could not be created successfully", errors: @timeoff.errors.full_messages }, status: :unprocessable_entity
-  
+
   end
 
   def show

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :payslips
     resources :timeoffs
     resources :bank_details
+    resources :timeoff_allocations
     root to: "users#index"
     
   end
@@ -27,12 +28,14 @@ Rails.application.routes.draw do
     resources :sessions, only: [:create]
     resources :profiles, only: [:show]
     resources :list, only: [:index]
-    # resources :leaves
+    resources :timeoffs, only: [:create, :index]
+    resources :timeoff_allocations
+    resources :payslips
   end
 
   # namespace :admin do
   #   resources :admin, only: [:index, :create, :update, :destroy]
   # end
 
-  resources :payslips
+  # resources :payslips
 end
