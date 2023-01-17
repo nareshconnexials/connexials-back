@@ -1,3 +1,3 @@
 class TimeoffAllocation < ApplicationRecord
-    belongs_to :timeoff
+  belongs_to :timeoff
 end
