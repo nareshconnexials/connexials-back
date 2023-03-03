@@ -33,7 +33,7 @@ class Users::LeavesController < ApplicationController
     private 
   
     def set_leave
-      @leave = current_user.leaves.find_by(id: params[:id])
+      @leave = Leave.find_by(id: params[:id], user_id: current_user.id)
       unless  @leave 
         render json: {error: 'Leave not found'}, status: :not_found 
       end

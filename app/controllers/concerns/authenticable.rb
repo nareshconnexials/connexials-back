@@ -9,6 +9,9 @@ module Authenticable
   def decode(token)
     decoded = JWT.decode(token, SECRET_KEY)[0]
     data = HashWithIndifferentAccess.new decoded
+  rescue JWT::DecodeError => error
+    Rails.logger.info("Invalid token")
+    {}
   end
 
   def current_user

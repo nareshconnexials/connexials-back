@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   ## Assocation
   has_many :timeoffs
-  has_many :leaves
+  has_many :leaves, class_name: "Leave", foreign_key: "user_id"
 
   ## Callback
   after_initialize do
