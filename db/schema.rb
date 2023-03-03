@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_16_061328) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_03_081824) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -63,6 +63,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_16_061328) do
     t.string "project_location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "leaves", force: :cascade do |t|
+    t.integer "leave_type"
+    t.date "from_date"
+    t.date "to_date"
+    t.integer "session_start"
+    t.integer "session_end"
+    t.string "notes"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["from_date"], name: "index_leaves_on_from_date"
+    t.index ["to_date"], name: "index_leaves_on_to_date"
+    t.index ["user_id"], name: "index_leaves_on_user_id"
   end
 
   create_table "payslips", force: :cascade do |t|
