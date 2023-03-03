@@ -1,5 +1,5 @@
 class Users::LeavesController < ApplicationController 
-    skip_before_action :authenticate_user!
+    # skip_before_action :authenticate_user!
   
     before_action :set_leave, only: [:show, :update] 
   
@@ -13,8 +13,9 @@ class Users::LeavesController < ApplicationController
     end
   
     def create 
-      @leave = Leave.create(leave_params)
-      if @leave.persisted? 
+      @leave = Leave.new(leave_params)
+      @leave.user_id = current_user.id
+      if @leave.save 
         render json: {message: "leave created successfully", data: @leave}, status: :created and return 
       else  
         render json: {message: "leave is not created", errors: @leave.errors.messages}, status: :unprocessable_entity 
@@ -32,7 +33,7 @@ class Users::LeavesController < ApplicationController
     private 
   
     def set_leave
-      @leave = Leave.find_by(id: params[:id])
+      @leave = current_user.leaves.find_by(id: params[:id])
       unless  @leave 
         render json: {error: 'Leave not found'}, status: :not_found 
       end

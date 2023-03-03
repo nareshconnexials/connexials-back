@@ -8,7 +8,7 @@ class Leave < ApplicationRecord
     validate   :from_date_must_be_greater_than_to_date
     validate   :notes_must_be_present
 
-    # belongs_to :user
+    belongs_to :user
   
     enum :session_start, [:session1, :session2], _suffix: true
     enum :session_end, [:session1, :session2], prefix: :session_end

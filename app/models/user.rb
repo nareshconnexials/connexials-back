@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
   ## Assocation
   has_many :timeoffs
+  has_many :leaves
 
   ## Callback
   after_initialize do
