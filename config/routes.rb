@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     resources :timeoffs, only: [:create, :index]
     resources :timeoff_allocations
     resources :payslips
+    resources :leaves, except: [:destroy]
   end
 
   # namespace :admin do
