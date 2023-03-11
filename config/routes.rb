@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   devise_for :admin_users
-  
+  resources :activity_logs
+
   namespace :admin do
     # Add dashboard for your models here
     resources :users
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
     resources :timeoffs
     resources :bank_details
     resources :timeoff_allocations
+    resources :projects, only: [:index, :show]
     root to: "users#index"
     
   end
@@ -32,7 +34,7 @@ Rails.application.routes.draw do
     resources :timeoff_allocations
     resources :payslips
   end
-
+  
   # namespace :admin do
   #   resources :admin, only: [:index, :create, :update, :destroy]
   # end
