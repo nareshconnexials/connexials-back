@@ -10,9 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_16_061328) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_09_140123) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activity_logs", force: :cascade do |t|
+    t.string "reciepents_email_addresses"
+    t.datetime "status_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "admin_users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -65,6 +72,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_16_061328) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "payslip_details", force: :cascade do |t|
+    t.float "amount"
+    t.string "name"
+    t.integer "category"
+    t.bigint "payslip_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["payslip_id"], name: "index_payslip_details_on_payslip_id"
+  end
+
   create_table "payslips", force: :cascade do |t|
     t.integer "employment_id"
     t.date "from_date"
@@ -72,6 +89,30 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_16_061328) do
     t.datetime "month"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "gross_salary"
+    t.float "net_salary"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "domain"
+    t.datetime "start_date"
+    t.bigint "rate"
+    t.string "currency"
+    t.string "project_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.float "working_hours"
+    t.string "status"
+    t.string "description"
+    t.bigint "activity_log_i  d"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_log_id"], name: "index_tasks_on_activity_log_id"
   end
 
   create_table "timeoff_allocations", force: :cascade do |t|
@@ -125,4 +166,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_16_061328) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "payslip_details", "payslips"
+  add_foreign_key "tasks", "activity_logs"
 end
