@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :timeoffs
     resources :bank_details
     resources :timeoff_allocations
-    resources :projects, only: [:index, :show]
+    resources :projects
     root to: "users#index"
     
   end
