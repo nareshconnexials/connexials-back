@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :deductions
     resources :payslips
     resources :timeoffs
+    resources :clients
     resources :bank_details
     resources :timeoff_allocations
     resources :projects, only: [:index, :show]
