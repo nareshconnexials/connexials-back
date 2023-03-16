@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_09_140123) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_15_131518) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_140123) do
     t.string "ifsc_code"
     t.string "pan_no"
     t.string "uan_no"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "clients", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.string "email"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.string "Address"
+    t.string "Zip_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -109,7 +122,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_140123) do
     t.float "working_hours"
     t.string "status"
     t.string "description"
-    t.bigint "activity_log_i  d"
+    t.bigint "activity_log_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["activity_log_id"], name: "index_tasks_on_activity_log_id"
@@ -130,13 +143,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_140123) do
     t.integer "user_id"
     t.date "from_date"
     t.date "to_date"
-    t.string "from_session"
-    t.string "to_session"
-    t.string "days"
-    t.string "mail_to"
-    t.string "reason"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "leave_type"
+    t.integer "session_start"
+    t.integer "session_end"
+    t.string "notes"
+    t.integer "status"
+    t.index ["from_date"], name: "index_timeoffs_on_from_date"
+    t.index ["to_date"], name: "index_timeoffs_on_to_date"
   end
 
   create_table "users", force: :cascade do |t|
