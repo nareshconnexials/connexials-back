@@ -1,0 +1,69 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/admin/clients":
+    get:
+      summary: list clients
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create client
+      responses:
+        '200':
+          description: successful
+  "/admin/clients/new":
+    get:
+      summary: new client
+      responses:
+        '200':
+          description: successful
+  "/admin/clients/{id}/edit":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: edit client
+      responses:
+        '200':
+          description: successful
+  "/admin/clients/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show client
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update client
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update client
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete client
+      responses:
+        '200':
+          description: successful
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000

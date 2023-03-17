@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
   
   # devise_for :admins, class_name: 'AdminUser', path: 'admin'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -16,9 +18,10 @@ Rails.application.routes.draw do
     resources :deductions
     resources :payslips
     resources :timeoffs
+    resources :clients
     resources :bank_details
     resources :timeoff_allocations
-    resources :projects, only: [:index, :show]
+    resources :projects
     root to: "users#index"
     
   end
