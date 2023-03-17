@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_14_060902) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_15_131518) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -143,13 +143,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_060902) do
     t.integer "user_id"
     t.date "from_date"
     t.date "to_date"
-    t.string "from_session"
-    t.string "to_session"
-    t.string "days"
-    t.string "mail_to"
-    t.string "reason"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "leave_type"
+    t.integer "session_start"
+    t.integer "session_end"
+    t.string "notes"
+    t.integer "status"
+    t.index ["from_date"], name: "index_timeoffs_on_from_date"
+    t.index ["to_date"], name: "index_timeoffs_on_to_date"
   end
 
   create_table "users", force: :cascade do |t|

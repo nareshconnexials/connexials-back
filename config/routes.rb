@@ -33,9 +33,10 @@ Rails.application.routes.draw do
     resources :sessions, only: [:create]
     resources :profiles, only: [:show]
     resources :list, only: [:index]
-    resources :timeoffs, only: [:create, :index]
+    #resources :timeoffs, only: [:create, :index]
     resources :timeoff_allocations
     resources :payslips
+    resources :timeoffs, except: [:destroy]
   end
   
   # namespace :admin do

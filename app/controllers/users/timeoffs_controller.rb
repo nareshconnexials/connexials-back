@@ -1,32 +1,46 @@
 class Users::TimeoffsController < ApplicationController
 
-  skip_before_action :authenticate_user!
+  #skip_before_action :authenticate_user!
   
-  def index
-    @timeoff = Timeoff.where(user_id: params[:user_id])
-    
-    render json: @timeoff
+  before_action :set_timeoffs, only: [:show, :update] 
+
+  def index 
+    @timeoffs  = Timeoff.all 
+    render json: @timeoffs.to_json
   end
 
-  def create
-    @timeoff = Timeoff.create! timeoff_params
-    if @timeoff.persisted?
-      render json: { message: "Timeoff created successfully", data: @timeoff}, status: :created and return
+  def show 
+    render json: @timeoffs
+  end
+
+  def create 
+    @timeoffs = Timeoff.new(timeoff_params)
+    @timeoffs.user_id = current_user.id
+    if @timeoffs.save 
+      render json: {message: "timeoff created successfully", data: @timeoffs}, status: :created and return 
+    else  
+      render json: {message: "timeoff is not created", errors: @timeoffs.errors.messages}, status: :unprocessable_entity 
     end
+  end 
 
-    render json: { message: "Timeoff could not be created successfully", errors: @timeoff.errors.full_messages }, status: :unprocessable_entity
-
+  def update 
+    if @timeoffs.update(timeoff_params)
+      render json: {message: "timeoff updated successfully", data: @timeoffs}, status: :ok 
+    else
+      render json: {message: "timeoff is not updated", errors: @timeoffs.errors.messages}, status: :ok 
+    end
   end
 
-  def show
-    @timeoff= Timeoff.find_by_id!(params[:id])
-    
-    render json: @timeoff
-  end
+  private 
 
-  private
+  def set_timeoffs
+    @timeoffs = Timeoff.find_by(id: params[:id], user_id: current_user.id)
+    unless  @timeoffs 
+      render json: {error: 'timeoff not found'}, status: :not_found 
+    end
+  end
 
   def timeoff_params
-    params.require(:timeoff).permit(:user_id, :from_date, :to_date, :from_session, :to_session, :days, :mail_to, :reason)
+    params.require(:timeoffs).permit(:from_date, :to_date, :session_start, :session_end, :notes, :leave_type, :status)
   end
 end

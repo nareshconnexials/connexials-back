@@ -6,8 +6,19 @@
 # you're free to overwrite the RESTful controller actions.
 module Admin
   class ApplicationController < Administrate::ApplicationController
-    before_action :authenticate_admin_user!
+   before_action :authenticate_admin_user!
 
+
+
+   def authenticate_admin_user!
+    header = request.headers["Authorization"]
+    token = header.split(' ')&.last if header
+    data = decode(token)
+    set_current_user(data[:user_id])
+    unless current_user
+      render json: {message: "unauthorized request"}, status: :unauthorized
+    end
+  end
 
     # def authenticate_admin
     #   # TODO Add authentication logic here.
