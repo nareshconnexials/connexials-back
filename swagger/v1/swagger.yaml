@@ -4,6 +4,64 @@ info:
   title: API V1
   version: v1
 paths:
+  "/activity_logs":
+    get:
+      summary: list activity_logs
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create activity_log
+      responses:
+        '200':
+          description: successful
+  "/activity_logs/new":
+    get:
+      summary: new activity_log
+      responses:
+        '200':
+          description: successful
+  "/activity_logs/{id}/edit":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: edit activity_log
+      responses:
+        '200':
+          description: successful
+  "/activity_logs/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show activity_log
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update activity_log
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update activity_log
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete activity_log
+      responses:
+        '200':
+          description: successful
   "/admin/clients":
     get:
       summary: list clients
@@ -59,6 +117,64 @@ paths:
           description: successful
     delete:
       summary: delete client
+      responses:
+        '200':
+          description: successful
+  "/admin/timeoffs":
+    get:
+      summary: list timeoffs
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create timeoff
+      responses:
+        '200':
+          description: successful
+  "/admin/timeoffs/new":
+    get:
+      summary: new timeoff
+      responses:
+        '200':
+          description: successful
+  "/admin/timeoffs/{id}/edit":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: edit timeoff
+      responses:
+        '200':
+          description: successful
+  "/admin/timeoffs/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show timeoff
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update timeoff
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update timeoff
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete timeoff
       responses:
         '200':
           description: successful
