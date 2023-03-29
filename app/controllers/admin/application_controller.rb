@@ -7,10 +7,9 @@
 module Admin
   class ApplicationController < Administrate::ApplicationController
    before_action :authenticate_admin_user!
+   include Authenticable
 
-
-
-   def authenticate_admin_user!
+   def authenticate_adin_user!
     header = request.headers["Authorization"]
     token = header.split(' ')&.last if header
     data = decode(token)

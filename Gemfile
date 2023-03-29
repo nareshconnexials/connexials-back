@@ -39,6 +39,9 @@ gem "redis", "~> 4.0"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 gem "bcrypt", "~> 3.1.7"
 
+# parse JSON data from different sources such as HTTP responses or local files.
+gem 'multi_json'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
@@ -53,6 +56,8 @@ gem "bootsnap", require: false
 
 ## Admin dashboard 
 gem 'administrate', '~> 0.18.0'
+gem 'bourbon'
+
 
 # Serializer 
 gem 'active_model_serializers'
