@@ -9,7 +9,7 @@ module Admin
    before_action :authenticate_admin_user!
    include Authenticable
 
-   def authenticate_adin_user!
+   def authenticate_admin_user!
     header = request.headers["Authorization"]
     token = header.split(' ')&.last if header
     data = decode(token)
