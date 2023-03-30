@@ -7,8 +7,7 @@
 module Admin
   class ApplicationController < Administrate::ApplicationController
    before_action :authenticate_admin_user!
-
-
+   include Authenticable
 
    def authenticate_admin_user!
     header = request.headers["Authorization"]
